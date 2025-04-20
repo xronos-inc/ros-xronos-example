@@ -1,13 +1,5 @@
 FROM ros:jazzy
 
-WORKDIR /
-RUN git clone --recurse-submodules --depth 1 https://github.com/xronos-inc/xronos.git
-
-WORKDIR /xronos/cpp-sdk
-
-RUN cmake -B build
-RUN cmake --build build --target xronos-sdk -j$(nproc)
-
 WORKDIR /root/ros2_ws/src
 
 COPY . subscriber/
