@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(ros_xronos_example_publisher VERSION 0.0.0 LANGUAGES CXX)
+project(ros_xronos_example_subscriber VERSION 0.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20 CACHE STRING "The C++ standard is cached for visibility in external tools." FORCE)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,14 +14,14 @@ find_package(rclcpp REQUIRED)
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
 
-set(LF_MAIN_TARGET ros_xronos_example_publisher)
+set(LF_MAIN_TARGET ros_xronos_example_subscriber)
 
 # ament_auto_add_library(${LF_MAIN_TARGET} SHARED
-#     src/publisher.cpp
+#     src/subscriber.cpp
 # )
 
 add_executable(${LF_MAIN_TARGET}
-    src/publisher.cpp
+    src/subscriber.cpp
 )
 
 ament_target_dependencies(${LF_MAIN_TARGET} rclcpp std_msgs)
@@ -31,7 +31,7 @@ target_include_directories(${LF_MAIN_TARGET} PUBLIC
 # target_link_libraries(${LF_MAIN_TARGET} xronos-sdk)
 
 # rclcpp_components_register_node(${LF_MAIN_TARGET}
-#   PLUGIN "ros_xronos_example_publisher"
+#   PLUGIN "ros_xronos_example_subscriber"
 #   EXECUTABLE ${LF_MAIN_TARGET}_exe
 # )
 
