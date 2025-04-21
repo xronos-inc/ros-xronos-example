@@ -16,10 +16,6 @@ ament_auto_find_build_dependencies()
 
 set(LF_MAIN_TARGET ros_xronos_example_publisher)
 
-# ament_auto_add_library(${LF_MAIN_TARGET} SHARED
-#     src/publisher.cpp
-# )
-
 add_executable(${LF_MAIN_TARGET}
     src/publisher.cpp
 )
@@ -28,12 +24,6 @@ ament_target_dependencies(${LF_MAIN_TARGET} rclcpp std_msgs)
 target_include_directories(${LF_MAIN_TARGET} PUBLIC
     "include"
 )
-# target_link_libraries(${LF_MAIN_TARGET} xronos-sdk)
-
-# rclcpp_components_register_node(${LF_MAIN_TARGET}
-#   PLUGIN "ros_xronos_example_publisher"
-#   EXECUTABLE ${LF_MAIN_TARGET}_exe
-# )
 
 if(MSVC)
   target_compile_options(${LF_MAIN_TARGET} PRIVATE /W4)

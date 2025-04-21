@@ -8,9 +8,9 @@ WORKDIR /root/ros2_ws/
 
 SHELL ["/bin/bash", "-c"]
 
-# RUN --mount=type=cache source /opt/ros/jazzy/setup.bash && \
-#   rosdep install -i --from-path src --rosdistro jazzy -y && \
-#   colcon build --packages-select ros_xronos_example_subscriber
+RUN --mount=type=cache,target=build source /opt/ros/jazzy/setup.bash && \
+  rosdep install -i --from-path src --rosdistro jazzy -y && \
+  colcon build --packages-select ros_xronos_example_subscriber
 
 COPY ./run.sh run.sh
 
